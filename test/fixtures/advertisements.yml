@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  type: 
+  active: false
+  views: 1
+  ratings_count: 1
+  rating: 1.5
+
+two:
+  name: MyString
+  type: 
+  active: false
+  views: 1
+  ratings_count: 1
+  rating: 1.5

@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @advertisement.name
+%p
+  %b Type:
+  = @advertisement.type
+%p
+  %b Active:
+  = @advertisement.active
+%p
+  %b Views:
+  = @advertisement.views
+%p
+  %b Ratings count:
+  = @advertisement.ratings_count
+%p
+  %b Rating:
+  = @advertisement.rating
+
+= link_to 'Edit', edit_advertisement_path(@advertisement)
+\|
+= link_to 'Back', advertisements_path

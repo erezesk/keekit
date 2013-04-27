@@ -1,0 +1,29 @@
+%h1 Listing advertisements
+
+%table
+  %tr
+    %th Name
+    %th Type
+    %th Active
+    %th Views
+    %th Ratings count
+    %th Rating
+    %th
+    %th
+    %th
+
+  - @advertisements.each do |advertisement|
+    %tr
+      %td= advertisement.name
+      %td= advertisement.type
+      %td= advertisement.active
+      %td= advertisement.views
+      %td= advertisement.ratings_count
+      %td= advertisement.rating
+      %td= link_to 'Show', advertisement
+      %td= link_to 'Edit', edit_advertisement_path(advertisement)
+      %td= link_to 'Destroy', advertisement, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Advertisement', new_advertisement_path
