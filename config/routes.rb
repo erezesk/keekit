@@ -1,4 +1,7 @@
 Keekit::Application.routes.draw do
+  resources :advertisements
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
