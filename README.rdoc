@@ -1,3 +1,3 @@
 == Keekit
 
-A basic site for rating commercials
+A site for rating commercials
