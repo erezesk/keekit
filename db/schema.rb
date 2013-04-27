@@ -11,17 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130427091423) do
+ActiveRecord::Schema.define(:version => 20130427095234) do
 
   create_table "advertisements", :force => true do |t|
     t.string   "name"
-    t.string   "type"
-    t.boolean  "active"
-    t.integer  "views"
-    t.integer  "ratings_count"
-    t.float    "rating"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.boolean  "active",        :default => true
+    t.integer  "views",         :default => 0
+    t.integer  "ratings_count", :default => 0
+    t.float    "rating",        :default => 0.0
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.string   "content_link"
+    t.string   "ad_type"
+    t.integer  "user_id"
   end
 
 end
