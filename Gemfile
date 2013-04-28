@@ -26,7 +26,9 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
+gem 'authlogic'
+#authlogic guide: http://www.logansbailey.com/2010/10/06/how-to-setup-authlogic-in-rails-3/
+#authlogic gempage: https://github.com/binarylogic/authlogic
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
