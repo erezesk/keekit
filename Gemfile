@@ -7,6 +7,7 @@ gem 'rails', '3.2.9'
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 end
 
 gem "haml-rails"
@@ -25,6 +26,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
