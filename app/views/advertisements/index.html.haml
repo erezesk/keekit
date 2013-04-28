@@ -3,7 +3,6 @@
 %table
   %tr
     %th Name
-    %th Type
     %th Active
     %th Views
     %th Ratings count
@@ -15,7 +14,6 @@
   - @advertisements.each do |advertisement|
     %tr
       %td= advertisement.name
-      %td= advertisement.type
       %td= advertisement.active
       %td= advertisement.views
       %td= advertisement.ratings_count
