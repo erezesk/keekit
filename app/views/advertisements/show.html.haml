@@ -4,9 +4,6 @@
   %b Name:
   = @advertisement.name
 %p
-  %b Type:
-  = @advertisement.type
-%p
   %b Active:
   = @advertisement.active
 %p
@@ -18,6 +15,40 @@
 %p
   %b Rating:
   = @advertisement.rating
+%p
+  %b created_at:
+  = @advertisement.created_at
+%p
+  %b updated_at:
+  = @advertisement.updated_at
+%p
+  %b content_link:
+  = @advertisement.content_link
+%p
+  %b ad_type:
+  = @advertisement.ad_type
+%p
+  %b user_id:
+  = @advertisement.user_id
+
+%h2 Ratings:
+- @advertisement.ratings.each do |rating|
+  %p
+    %b value:
+    = rating.value
+  %p
+    %b user_id:
+    = rating.user_id
+  %p
+    %b advertisement_id:
+    = rating.advertisement_id
+
+%h3 Rate:
+= form_for [@advertisement, @advertisement.ratings.build] do |f|
+  .field
+    = f.select :value, options_for_select((1..10).to_a)
+  .actions
+    = f.submit 'Rate'
 
 = link_to 'Edit', edit_advertisement_path(@advertisement)
 \|

@@ -18,4 +18,9 @@
 class Advertisement < ActiveRecord::Base
   attr_accessible :name, :active, :views, :ratings_count, :rating, :created_at, 
                   :updated_at, :content_link, :ad_type, :user_id
+
+  validates :name,  :presence => true
+  validates :content_link,  :presence => true
+
+  has_many :ratings, :dependent => :destroy
 end

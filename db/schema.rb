@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130427095234) do
+ActiveRecord::Schema.define(:version => 20130429115147) do
 
   create_table "advertisements", :force => true do |t|
     t.string   "name"
@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(:version => 20130427095234) do
     t.string   "content_link"
     t.string   "ad_type"
     t.integer  "user_id"
+  end
+
+  create_table "ratings", :force => true do |t|
+    t.integer  "value"
+    t.integer  "advertisement_id"
+    t.integer  "user_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
 end

@@ -40,7 +40,11 @@ class AdvertisementsController < ApplicationController
   # POST /advertisements
   # POST /advertisements.json
   def create
-    @advertisement = Advertisement.new(params[:advertisement])
+    advertisement = params[:advertisement]
+    advertisement["ad_type"] = "video"
+    # FIXME change user_id to be taken from currently logged in user
+    advertisement["user_id"] = 19
+    @advertisement = Advertisement.new(advertisement)
 
     respond_to do |format|
       if @advertisement.save

@@ -7,9 +7,11 @@
     %th Views
     %th Ratings count
     %th Rating
-    %th
-    %th
-    %th
+    %th Created at
+    %th Updated at
+    %th Content link
+    %th Ad type
+    %th User id
 
   - @advertisements.each do |advertisement|
     %tr
@@ -18,6 +20,11 @@
       %td= advertisement.views
       %td= advertisement.ratings_count
       %td= advertisement.rating
+      %td= advertisement.created_at
+      %td= advertisement.updated_at
+      %td= advertisement.content_link
+      %td= advertisement.ad_type
+      %td= advertisement.user_id
       %td= link_to 'Show', advertisement
       %td= link_to 'Edit', edit_advertisement_path(advertisement)
       %td= link_to 'Destroy', advertisement, :method => :delete, :data => { :confirm => 'Are you sure?' }

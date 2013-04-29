@@ -1,5 +1,7 @@
 Keekit::Application.routes.draw do
-  resources :advertisements
+  resources :advertisements do
+    resources :ratings
+  end
 
 
   # The priority is based upon order of creation:

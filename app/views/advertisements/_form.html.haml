@@ -10,19 +10,10 @@
     = f.label :name
     = f.text_field :name
   .field
-    = f.label :type
-    = f.text_field :type
+    = f.label :content_link
+    = f.text_field :content_link
   .field
     = f.label :active
     = f.check_box :active
-  .field
-    = f.label :views
-    = f.number_field :views
-  .field
-    = f.label :ratings_count
-    = f.number_field :ratings_count
-  .field
-    = f.label :rating
-    = f.text_field :rating
   .actions
     = f.submit 'Save'
