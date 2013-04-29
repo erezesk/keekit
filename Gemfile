@@ -30,6 +30,9 @@ gem 'authlogic'
 #authlogic guide: http://www.logansbailey.com/2010/10/06/how-to-setup-authlogic-in-rails-3/
 #authlogic gempage: https://github.com/binarylogic/authlogic
 
+#country-select gem: https://github.com/jamesds/country-select
+gem 'country-select'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

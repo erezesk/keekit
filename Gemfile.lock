@@ -48,6 +48,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.2)
+    country-select (1.1.1)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -125,6 +126,7 @@ DEPENDENCIES
   annotate!
   authlogic
   coffee-rails (~> 3.2.1)
+  country-select
   haml
   haml-rails
   jquery-rails
