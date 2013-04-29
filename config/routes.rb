@@ -1,8 +1,9 @@
 Keekit::Application.routes.draw do
-  resources :users
+  resources :users do
+    resources :advertisements
+  end
 
-
-  resources :advertisements do
+  resources :advertisements, :only => [:index] do
     resources :ratings
   end
 
