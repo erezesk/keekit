@@ -1,4 +1,7 @@
 Keekit::Application.routes.draw do
+  resources :users
+
+
   resources :advertisements do
     resources :ratings
   end
