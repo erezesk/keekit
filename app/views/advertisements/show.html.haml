@@ -4,44 +4,29 @@
   %b Name:
   = @advertisement.name
 %p
-  %b Active:
-  = @advertisement.active
-%p
   %b Views:
   = @advertisement.views
-%p
-  %b Ratings count:
-  = @advertisement.ratings_count
 %p
   %b Rating:
   = @advertisement.rating
 %p
-  %b created_at:
-  = @advertisement.created_at
-%p
-  %b updated_at:
-  = @advertisement.updated_at
-%p
-  %b content_link:
-  = @advertisement.content_link
-%p
-  %b ad_type:
-  = @advertisement.ad_type
-%p
   %b user_id:
   = @advertisement.user_id
 
-%h2 Ratings:
-- @advertisement.ratings.each do |rating|
-  %p
-    %b value:
-    = rating.value
-  %p
-    %b user_id:
-    = rating.user_id
-  %p
-    %b advertisement_id:
-    = rating.advertisement_id
+%iframe{:allowscriptaccess => "always", :allowFullScreen => "true", :frameborder => "0", :height => "360", :src => "http://www.youtube.com/embed/#{@advertisement.content_link}?rel=0", :title => "YouTube video player", :width => "640"}
+
+/ show a list of all ratings (for debugging), uncomment only when neccesary
+/ %h2 Ratings:
+/ - @advertisement.ratings.each do |rating|
+/   %p
+/     %b value:
+/     = rating.value
+/   %p
+/     %b user_id:
+/     = rating.user_id
+/   %p
+/     %b advertisement_id:
+/     = rating.advertisement_id
 
 %h3 Rate:
 = form_for [@advertisement, @advertisement.ratings.build] do |f|
