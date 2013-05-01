@@ -1,0 +1,25 @@
+.navbar.navbar-fixed-top
+  .navbar-inner
+    .container
+      %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %span.brand Keek!t
+      %ul.nav.nav-pills
+        %li
+          %a{href: advertisements_path}
+            .b.icon-user
+            Advertisements
+        %li
+          %a{href: new_user_path}
+            .b.icon-cogs
+            Register  
+        %li
+          %a{href: users_path}
+            .b.icon-calendar
+            Users
+        / %li
+        /   %a{href: settings_path}
+        /     .b.icon-cogs
+        /     Settings
