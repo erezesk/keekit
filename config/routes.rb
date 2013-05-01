@@ -3,7 +3,8 @@ Keekit::Application.routes.draw do
     resources :advertisements
   end
 
-  resources :advertisements, :only => [:index] do
+  # resources :advertisements, :only => [:index] do
+  resources :advertisements do
     resources :ratings
   end
 

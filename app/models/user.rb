@@ -20,4 +20,7 @@ class User < ActiveRecord::Base
   attr_accessible :password, :password_confirmation
 
   acts_as_authentic
+
+  has_many :advertisements, :dependent => :destroy
+  has_many :ratings, :dependent => :destroy
 end

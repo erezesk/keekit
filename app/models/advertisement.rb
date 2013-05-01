@@ -23,4 +23,5 @@ class Advertisement < ActiveRecord::Base
   validates :content_link,  :presence => true
 
   has_many :ratings, :dependent => :destroy
+  belongs_to :user
 end
