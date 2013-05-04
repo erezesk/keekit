@@ -5,7 +5,6 @@
       %ul
         - @user.errors.full_messages.each do |msg|
           %li= msg
-
   .control-group
     = f.label :username, :class => 'control-label'
     .controls
@@ -15,9 +14,9 @@
     .controls
       = f.text_field :email, :class => 'text_field'
   .control-group
-    = f.label :type, :class => 'control-label'
+    = f.label :user_type, :class => 'control-label'
     .controls
-      = f.text_field :type, :class => 'text_field'
+      = f.text_field :user_type, :class => 'text_field'
   .control-group
     = f.label :birthday, :class => 'control-label'
     .controls
@@ -36,3 +35,5 @@
       = f.password_field :password_confirmation, :class => 'text_field'
   .form-actions
     = f.submit nil, class: 'btn btn-primary'
+
+/ FIXME country and date select

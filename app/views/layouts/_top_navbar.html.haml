@@ -12,14 +12,25 @@
             .b.icon-user
             Advertisements
         %li
-          %a{href: new_user_path}
-            .b.icon-cogs
-            Register  
-        %li
           %a{href: users_path}
-            .b.icon-calendar
+            .b.icon-user
             Users
-        / %li
-        /   %a{href: settings_path}
-        /     .b.icon-cogs
-        /     Settings
+
+        - if current_user
+          %li
+            %a{href: edit_user_path(current_user.id)}
+              .b.icon-cogs
+              Edit Profile
+          %li
+            %a{href: logout_path}
+              .b.icon-cogs
+              Logout
+        - else
+          %li
+            %a{href: new_user_path}
+              .b.icon-cogs
+              Register
+          %li
+            %a{href: login_path}
+              .b.icon-cogs
+              Login

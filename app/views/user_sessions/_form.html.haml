@@ -1,0 +1,18 @@
+= form_for @user_session, :html => { :class => 'form-horizontal user-edit-form' } do |f|
+  - if @user_session.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@user_session.errors.count, "error")} prohibited this user_session from being saved:"
+      %ul
+        - @user_session.errors.full_messages.each do |msg|
+          %li= msg
+
+  .control-group
+    = f.label :username, :class => 'control-label'
+    .controls
+      = f.text_field :username, :class => 'text_field'
+  .control-group
+    = f.label :password, :class => 'control-label'
+    .controls
+      = f.password_field :password, :class => 'text_field'
+  .form-actions
+    = f.submit nil, class: 'btn btn-primary'

@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  # FIXME fix country and date select in _form
+  # FIXME css in _form breaks when there is an error after submission
+
+
   # GET /users
   # GET /users.json
   def index

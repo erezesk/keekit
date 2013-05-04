@@ -1,4 +1,7 @@
 Keekit::Application.routes.draw do
+
+  # FIXME fix routes
+
   resources :users do
     resources :advertisements
   end
@@ -8,6 +11,9 @@ Keekit::Application.routes.draw do
     resources :ratings
   end
 
+  resources :user_sessions, :only => [:create]
+  match 'login' => 'user_sessions#new', :as => :login
+  match 'logout' => 'user_sessions#destroy', :as => :logout
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
