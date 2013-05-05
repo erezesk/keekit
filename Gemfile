@@ -32,6 +32,10 @@ group :assets do
   gem 'compass-rails'
 end
 
+group :production do
+  gem 'pg'
+end
+
 gem 'jquery-rails'
 gem 'authlogic'
 #authlogic guide: http://www.logansbailey.com/2010/10/06/how-to-setup-authlogic-in-rails-3/
