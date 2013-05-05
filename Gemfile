@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-ruby '1.9.3'
+
 gem 'rails', '3.2.9'
 
 # Bundle edge Rails instead:
@@ -35,6 +35,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'unicorn'
 end
 
 gem 'jquery-rails'
