@@ -13,7 +13,8 @@ end
 gem "haml-rails"
 gem "haml"
 gem 'twitter-bootstrap-rails'
-gem 'compass-rails'
+# gem 'compass'
+# gem 'compass-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
