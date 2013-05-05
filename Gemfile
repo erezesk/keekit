@@ -12,7 +12,7 @@ end
 
 gem "haml-rails"
 gem "haml"
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 # gem 'compass'
 # gem 'compass-rails'
 
