@@ -15,6 +15,16 @@ class AdvertisementsController < ApplicationController
   def show
     @advertisement = Advertisement.find(params[:id])
 
+    if current_user
+      @user_rated = false
+      rating = Rating.where("user_id = #{current_user.id} and advertisement_id = #{@advertisement.id}")
+
+      if rating.count > 0
+        @user_rated = true
+        @user_rating = rating.pluck(:value).first
+      end
+    end
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @advertisement }
@@ -42,8 +52,13 @@ class AdvertisementsController < ApplicationController
   def create
     advertisement = params[:advertisement]
     advertisement["ad_type"] = "video"
-    # FIXME change user_id to be taken from currently logged in user
-    advertisement["user_id"] = 19
+    advertisement["user_id"] = current_user.id
+
+    if advertisement["content_link"].start_with? "http", "www"
+      advertisement["content_link"].match /[?|&]v=([^&]*)/
+      advertisement["content_link"] = $1
+    end
+
     @advertisement = Advertisement.new(advertisement)
 
     respond_to do |format|

@@ -3,8 +3,7 @@ class RatingsController < ApplicationController
     @advertisement = Advertisement.find(params[:advertisement_id])
     
     rating = params[:rating]
-    # FIXME change user_id to be taken from currently logged in user
-    rating["user_id"] = 19
+    rating["user_id"] = current_user.id
     @ratings = @advertisement.ratings.create(rating)
 
     # update the ad's rating and rating_count to reflect the newly added rating

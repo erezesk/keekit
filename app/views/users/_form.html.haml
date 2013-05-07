@@ -16,7 +16,8 @@
   .control-group
     = f.label :user_type, :class => 'control-label'
     .controls
-      = f.text_field :user_type, :class => 'text_field'
+      /= f.text_field :user_type, :class => 'text_field'
+      = f.select :user_type, options_for_select(["Viewer", "Advertiser"]), :class => 'select'
   .control-group
     = f.label :birthday, :class => 'control-label'
     .controls

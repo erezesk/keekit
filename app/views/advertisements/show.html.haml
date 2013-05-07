@@ -28,12 +28,22 @@
 /     %b advertisement_id:
 /     = rating.advertisement_id
 
-%h3 Rate:
-= form_for [@advertisement, @advertisement.ratings.build] do |f|
-  .field
-    = f.select :value, options_for_select((1..10).to_a)
-  .actions
-    = f.submit 'Rate'
+- if current_user
+  %br
+  %br
+  - if @user_rated
+    %p
+      %b Your rating:
+      = @user_rating
+  - else
+    %h3 Rate:
+    = form_for [@advertisement, @advertisement.ratings.build] do |f|
+      .field
+        = f.select :value, options_for_select((1..10).to_a)
+      .actions
+        = f.submit 'Rate'
+
+%br
 
 = link_to 'Edit', edit_advertisement_path(@advertisement)
 \|
