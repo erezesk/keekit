@@ -16,13 +16,8 @@ class AdvertisementsController < ApplicationController
     @advertisement = Advertisement.find(params[:id])
 
     if current_user
-      @user_rated = false
-      rating = Rating.where("user_id = #{current_user.id} and advertisement_id = #{@advertisement.id}")
-
-      if rating.count > 0
-        @user_rated = true
-        @user_rating = rating.pluck(:value).first
-      end
+      @user_rating = @advertisement.user_rating(current_user.id).try(:value)
+      @user_rated =  @user_rating.present?
     end
 
     respond_to do |format|
