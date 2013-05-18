@@ -46,6 +46,10 @@ gem 'country-select'
 ################################
 ##############DATE PICKER!!!!
 ################################
+
+#### Facebook sharing:
+# http://railslove.com/blog/2011/02/22/introducing-simple-facebook-share-gem/
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
