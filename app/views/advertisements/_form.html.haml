@@ -1,4 +1,4 @@
-= form_for @advertisement do |f|
+= form_for @advertisement, :html => { :class => 'form-horizontal user-edit-form' } do |f|
   - if @advertisement.errors.any?
     #error_explanation
       %h2= "#{pluralize(@advertisement.errors.count, "error")} prohibited this advertisement from being saved:"
@@ -6,14 +6,17 @@
         - @advertisement.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label "video youtube id"
-    = f.text_field :content_link
-  .field
-    = f.label :active
-    = f.check_box :active
-  .actions
-    = f.submit 'Save'
+  .control-group
+    = f.label :name, :class => 'control-label'
+    .controls
+      = f.text_field :name, :class => 'text_field'
+  .control-group
+    = f.label "video youtube id", :class => 'control-label'
+    .controls
+      = f.text_field :content_link, :class => 'text_field'
+  .control-group
+    = f.label :active, :class => 'control-label'
+    .controls
+      = f.check_box :active
+  .form-actions
+    = f.submit nil, class: 'btn btn-primary'
