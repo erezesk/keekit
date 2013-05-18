@@ -11,6 +11,8 @@ Keekit::Application.routes.draw do
     resources :ratings
   end
 
+  match 'my_advertisements' => 'advertisements#current_user_ads', :as => :my_advertisements
+
   resources :user_sessions, :only => [:create]
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout

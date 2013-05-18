@@ -10,6 +10,15 @@ class AdvertisementsController < ApplicationController
     end
   end
 
+  def current_user_ads
+    @advertisements = Advertisement.where(user_id: current_user.id)
+
+    respond_to do |format|
+      format.html { render action: "index" }
+      format.json { render json: @advertisements }
+    end
+  end
+
   # GET /advertisements/1
   # GET /advertisements/1.json
   def show
