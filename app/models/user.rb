@@ -23,4 +23,8 @@ class User < ActiveRecord::Base
 
   has_many :advertisements, :dependent => :destroy
   has_many :ratings, :dependent => :destroy
+
+  def advertiser?
+  	user_type == "Advertiser"
+  end
 end
