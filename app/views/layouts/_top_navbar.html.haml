@@ -8,30 +8,43 @@
       %a{href: root_path}
         %span.brand Keek!t
       %ul.nav.nav-pills
-        %li
-          %a{href: advertisements_path}
-            .b.icon-user
-            Advertisements
-        %li
-          %a{href: users_path}
-            .b.icon-user
-            Users
 
+        - if current_user.try(:advertiser?)
+          %li{:class => "dropdown"}
+            %a{"data-toggle" => "dropdown", "data-target" => "#", "class" => "dropdown-toggle", "role" => "button", "id" => "ad-dropdown"}
+              .b.icon-picture
+              Advertisements
+              %b{:class => "caret"}
+
+            %ul{"class" => "dropdown-menu", "role" => "menu", "aria-labelledby" => "ad-dropdown"}
+              %li{role: "presentation"}
+                %a{href: advertisements_path, role: "menuitem"}
+                  My Advertisements
+              %li{role: "presentation"}
+                %a{href: new_advertisement_path, role: "menuitem"}
+                  New Advertisement
+        
         - if current_user
           %li
             %a{href: edit_user_path(current_user.id)}
-              .b.icon-cogs
+              .b.icon-user
               Edit Profile
           %li
             %a{href: logout_path}
-              .b.icon-cogs
+              .b.icon-eject
               Logout
         - else
           %li
             %a{href: new_user_path}
-              .b.icon-cogs
+              .b.icon-plus-sign
               Register
           %li
             %a{href: login_path}
-              .b.icon-cogs
+              .b.icon-user
               Login
+
+          / REMOVE THIS
+          %li
+            %a{href: users_path}
+              .b.icon-user
+              Users (remove this)
