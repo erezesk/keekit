@@ -44,6 +44,7 @@
               Login
 
           / REMOVE THIS
+        - unless Rails.env.production?
           %li
             %a{href: users_path}
               .b.icon-user

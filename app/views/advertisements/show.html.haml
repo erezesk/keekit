@@ -45,6 +45,4 @@
 
 %br
 
-= link_to 'Edit', edit_advertisement_path(@advertisement)
-\|
-= link_to 'Back', advertisements_path
+= (link_to 'Edit', edit_advertisement_path(@advertisement)) if current_user.id == @advertisement.user_id
