@@ -41,8 +41,14 @@ div {
 
 .field_with_errors {
   padding: 2px;
-  background-color: red;
-  display: table;
+
+  label {
+    background-color: red;
+  }
+
+  input, select {
+    border-color: red;
+  }
 }
 
 #error_explanation {
