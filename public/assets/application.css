@@ -13680,70 +13680,101 @@ ul.icons {
 }
 
 /* line 7, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
-body {
-  padding-top: 60px;
+.navbar .navbar-inner {
+  background-color: #252525;
+  background-image: none;
+}
+/* line 12, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+.navbar .navbar-inner .container .brand {
+  color: red;
+}
+/* line 13, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+.navbar .navbar-inner .container a {
+  color: white;
+}
+/* line 15, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+.navbar .navbar-inner .container a:hover {
+  color: red;
+}
+/* line 17, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+.navbar .navbar-inner .container .dropdown.open .dropdown-toggle {
+  background-color: #252525;
+  color: red;
+}
+/* line 18, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+.navbar .navbar-inner .container .dropdown-menu {
+  background-color: #252525;
+}
+
+/* line 22, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+.form-horizontal .form-actions {
+  background-color: transparent;
+  border-top: none;
 }
 /* line 1, ../../app/assets/stylesheets/scaffolds.css.scss */
 body {
-  background-color: #fff;
-  color: #333;
+  background-color: #252525;
+  padding-top: 60px;
+  color: white;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  background-image: url("background.jpg");
+  background-size: 100%;
 }
 
-/* line 9, ../../app/assets/stylesheets/scaffolds.css.scss */
+/* line 12, ../../app/assets/stylesheets/scaffolds.css.scss */
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
 }
 
-/* line 15, ../../app/assets/stylesheets/scaffolds.css.scss */
+/* line 18, ../../app/assets/stylesheets/scaffolds.css.scss */
 pre {
   background-color: #eee;
   padding: 10px;
   font-size: 11px;
 }
 
-/* line 21, ../../app/assets/stylesheets/scaffolds.css.scss */
+/* line 24, ../../app/assets/stylesheets/scaffolds.css.scss */
 a {
   color: #000;
 }
-/* line 23, ../../app/assets/stylesheets/scaffolds.css.scss */
+/* line 26, ../../app/assets/stylesheets/scaffolds.css.scss */
 a:visited {
   color: #666;
 }
-/* line 26, ../../app/assets/stylesheets/scaffolds.css.scss */
+/* line 29, ../../app/assets/stylesheets/scaffolds.css.scss */
 a:hover {
   color: #fff;
   background-color: #000;
 }
 
-/* line 33, ../../app/assets/stylesheets/scaffolds.css.scss */
+/* line 36, ../../app/assets/stylesheets/scaffolds.css.scss */
 div.field, div.actions {
   margin-bottom: 10px;
 }
 
-/* line 38, ../../app/assets/stylesheets/scaffolds.css.scss */
+/* line 41, ../../app/assets/stylesheets/scaffolds.css.scss */
 #notice {
   color: green;
 }
 
-/* line 42, ../../app/assets/stylesheets/scaffolds.css.scss */
+/* line 45, ../../app/assets/stylesheets/scaffolds.css.scss */
 .field_with_errors {
   padding: 2px;
 }
-/* line 45, ../../app/assets/stylesheets/scaffolds.css.scss */
+/* line 48, ../../app/assets/stylesheets/scaffolds.css.scss */
 .field_with_errors label {
   background-color: red;
 }
-/* line 49, ../../app/assets/stylesheets/scaffolds.css.scss */
+/* line 52, ../../app/assets/stylesheets/scaffolds.css.scss */
 .field_with_errors input, .field_with_errors select {
   border-color: red;
 }
 
-/* line 54, ../../app/assets/stylesheets/scaffolds.css.scss */
+/* line 57, ../../app/assets/stylesheets/scaffolds.css.scss */
 #error_explanation {
   width: 450px;
   border: 2px solid red;
@@ -13752,7 +13783,7 @@ div.field, div.actions {
   margin-bottom: 20px;
   background-color: #f0f0f0;
 }
-/* line 61, ../../app/assets/stylesheets/scaffolds.css.scss */
+/* line 64, ../../app/assets/stylesheets/scaffolds.css.scss */
 #error_explanation h2 {
   text-align: left;
   font-weight: bold;
@@ -13763,7 +13794,7 @@ div.field, div.actions {
   background-color: #c00;
   color: #fff;
 }
-/* line 71, ../../app/assets/stylesheets/scaffolds.css.scss */
+/* line 74, ../../app/assets/stylesheets/scaffolds.css.scss */
 #error_explanation ul li {
   font-size: 12px;
   list-style: square;

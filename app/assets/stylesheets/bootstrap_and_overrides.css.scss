@@ -4,4 +4,27 @@
 //To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
 @import "twitter-bootstrap-static/fontawesome";
 
-body { padding-top: 60px; } 
+.navbar .navbar-inner {
+  background-color: #252525; 
+  background-image: none;
+
+  .container { 
+    .brand { color: red; }
+    a { 
+      color: white;  
+      &:hover { color: red; }
+    }
+    .dropdown.open .dropdown-toggle { background-color: #252525; color: red; }
+    .dropdown-menu { background-color: #252525; }
+  }
+} 
+
+.form-horizontal .form-actions { 
+  background-color: transparent; 
+  border-top: none;
+}
+
+body .container .content .row { 
+  background-image: url("container-wrapper.png"); 
+  border-radius: 15px;
+}
