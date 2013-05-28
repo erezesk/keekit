@@ -13691,32 +13691,34 @@ ul.icons {
 /* line 12, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .navbar .navbar-inner .container .brand {
   color: red;
+  text-shadow: none;
 }
 /* line 13, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .navbar .navbar-inner .container a {
   color: white;
+  text-shadow: none;
 }
-/* line 15, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 16, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .navbar .navbar-inner .container a:hover {
   color: red;
 }
-/* line 17, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 18, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .navbar .navbar-inner .container .dropdown.open .dropdown-toggle {
   background-color: #252525;
   color: red;
 }
-/* line 18, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 19, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .navbar .navbar-inner .container .dropdown-menu {
   background-color: #252525;
 }
 
-/* line 22, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 23, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .form-horizontal .form-actions {
   background-color: transparent;
   border-top: none;
 }
 
-/* line 27, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 28, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 body .container .content .row {
   background-image: url("container-wrapper.png");
   border-radius: 15px;

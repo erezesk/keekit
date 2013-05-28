@@ -5,7 +5,7 @@
   .carousel-inner
     - @advertisements.each do |advertisement|
       .item 
-        %iframe{:allowscriptaccess => "always", :allowFullScreen => "true", :frameborder => "0", :height => "360", :src => "http://www.youtube.com/embed/#{advertisement.content_link}?rel=0", :title => "YouTube video player", :width => "640"}
+        %iframe{:allowscriptaccess => "always", :allowFullScreen => "true", :frameborder => "0", :height => "480", :src => "http://www.youtube.com/embed/#{advertisement.content_link}?rel=0", :title => "YouTube video player", :width => "640"}
 
   / Carousel nav
   %a.carousel-control.left{href: "#myCarousel", "data-slide" => "prev"} &lsaquo;

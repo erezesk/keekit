@@ -9,9 +9,10 @@
   background-image: none;
 
   .container { 
-    .brand { color: red; }
+    .brand { color: red; text-shadow: none; }
     a { 
       color: white;  
+      text-shadow: none;
       &:hover { color: red; }
     }
     .dropdown.open .dropdown-toggle { background-color: #252525; color: red; }
