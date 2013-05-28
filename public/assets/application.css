@@ -9,6 +9,39 @@
 .carousel-inner .item {
   padding-left: 72px;
 }
+/* line 9, ../../app/assets/stylesheets/advertisements.css.scss */
+.carousel-inner .item .inner-item {
+  width: 94%;
+}
+/* line 12, ../../app/assets/stylesheets/advertisements.css.scss */
+.carousel-inner .item .inner-item iframe {
+  display: inline-block;
+}
+/* line 14, ../../app/assets/stylesheets/advertisements.css.scss */
+.carousel-inner .item .inner-item .ad-data {
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  width: 37%;
+}
+/* line 20, ../../app/assets/stylesheets/advertisements.css.scss */
+.carousel-inner .item .inner-item .ad-data .name {
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  margin: 0 auto;
+}
+/* line 27, ../../app/assets/stylesheets/advertisements.css.scss */
+.carousel-inner .item .inner-item .ad-data .rating {
+  background-image: url("rating-star.gif");
+  background-size: 100%;
+  width: 150px;
+  height: 82px;
+  padding-top: 65px;
+  font-size: 20px;
+  text-align: center;
+  margin: 0 auto;
+}
 /* line 1, ../../../../.rvm/gems/ruby-1.9.3-p392/bundler/gems/twitter-bootstrap-rails-c26c235b8e16/vendor/assets/stylesheets/twitter-bootstrap-static/bootstrap.css.erb */
 .clearfix {
   *zoom: 1;

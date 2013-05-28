@@ -3,5 +3,38 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .carousel-inner {
-  .item { padding-left: 72px; }
+  .item { 
+    padding-left: 72px; 
+
+    .inner-item {
+      width: 94%;
+
+      iframe { display: inline-block; }
+
+      .ad-data {
+        display: inline-block;
+        vertical-align: top;
+        text-align: center;
+        width: 37%;
+
+        .name { 
+          font-size: 20px;
+          font-weight: bold;
+          color: black;
+          margin: 0 auto;
+        }
+
+        .rating { 
+          background-image: url("rating-star.gif");
+          background-size: 100%;
+          width: 150px;
+          height: 82px;
+          padding-top: 65px;
+          font-size: 20px;
+          text-align: center;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
 }
