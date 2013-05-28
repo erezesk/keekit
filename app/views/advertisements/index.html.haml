@@ -1,6 +1,15 @@
-%h1 Listing advertisements
-
 %p#notice= notice
+
+#myCarousel.carousel.slide
+  / Carousel items
+  .carousel-inner
+    - @advertisements.each do |advertisement|
+      .item 
+        %iframe{:allowscriptaccess => "always", :allowFullScreen => "true", :frameborder => "0", :height => "360", :src => "http://www.youtube.com/embed/#{advertisement.content_link}?rel=0", :title => "YouTube video player", :width => "640"}
+
+  / Carousel nav
+  %a.carousel-control.left{href: "#myCarousel", "data-slide" => "prev"} &lsaquo;
+  %a.carousel-control.right{href: "#myCarousel", "data-slide" => "next"} &rsaquo;
 
 %table
   %tr
@@ -30,46 +39,3 @@
       %td= link_to 'Show', advertisement
       %td= link_to 'Edit', edit_advertisement_path(advertisement)
       %td= link_to 'Destroy', advertisement, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-#myCarousel.carousel.slide
-  %ol.carousel-indicators
-
-  / Carousel items
-  .carousel-inner
-
-  / Carousel nav
-  %a.carousel-control.left{href: "#myCarousel", "data-slide" => "prev"} &lsaquo;
-  %a.carousel-control.right{href: "#myCarousel", "data-slide" => "next"} &rsaquo;
-
-/   <ol class="carousel-indicators">
-/     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-/     <li data-target="#myCarousel" data-slide-to="1"></li>
-/     <li data-target="#myCarousel" data-slide-to="2"></li>
-/   </ol>
-/   Carousel items
-/   <div class="carousel-inner">
-/     <div class="active item">…</div>
-/     <div class="item">…</div>
-/     <div class="item">…</div>
-/   </div>
-/   Carousel nav
-/   <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-/   <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-/ </div>
-
-%script
-  - @advertisements.each_with_index do |advertisement,index|
-    $("<li>").attr("data-target", "#myCarousel").attr("data-slide-to", "#{index}").appendTo(".carousel-indicators")
-    var currentDiv = $("<div>").addClass("item")
-    var baseIframe = $("<iframe>").attr("allowscriptaccess","always").attr("allowFullScreen","true")
-    baseIframe.attr("frameborder", "0").attr("title","YouTube video player")
-    baseIframe.attr("height","360").attr("width","640")
-    baseIframe.attr("src", "http://www.youtube.com/embed/#{advertisement.content_link}?rel=0")
-    baseIframe.appendTo(currentDiv)
-    currentDiv.appendTo(".carousel-inner")
-    
-  $(".carousel-indicators:first-child").addClass("active")
-  $(".carousel-inner:first-child").addClass("active")
-  $('.carousel').carousel()

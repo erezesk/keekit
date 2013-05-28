@@ -5,6 +5,10 @@
 
 
 */
+/* line 6, ../../app/assets/stylesheets/advertisements.css.scss */
+.carousel-inner .item {
+  padding-left: 72px;
+}
 /* line 1, ../../../../.rvm/gems/ruby-1.9.3-p392/bundler/gems/twitter-bootstrap-rails-c26c235b8e16/vendor/assets/stylesheets/twitter-bootstrap-static/bootstrap.css.erb */
 .clearfix {
   *zoom: 1;
@@ -13710,6 +13714,12 @@ ul.icons {
 .form-horizontal .form-actions {
   background-color: transparent;
   border-top: none;
+}
+
+/* line 27, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+body .container .content .row {
+  background-image: url("container-wrapper.png");
+  border-radius: 15px;
 }
 /* line 1, ../../app/assets/stylesheets/scaffolds.css.scss */
 body {
