@@ -3,5 +3,17 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
-  $('.dropdown-toggle').dropdown()
-  $(".carousel-inner .item:first").addClass("active")
+  if page_name == "index"
+    $('.dropdown-toggle').dropdown()
+    $(".carousel-inner .item:first").addClass("active")
+
+    $("span.star-rating-control div.star-rating").click -> 
+      $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: ($(this).parents("form").attr("action") + ".json"),
+        data: { rating: { value: $(this).parents("form").find("[name='rating[value]']:checked").val() } },
+        success: (obj) ->
+          $("#ad_" + obj.ad_id).find(".rating").text(obj.rating).removeClass("hidden")
+          $("#ad_" + obj.ad_id).find("div.field").text("Your rating: " + obj.your_rating).children().remove()
+      })

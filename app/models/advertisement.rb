@@ -23,7 +23,7 @@ class Advertisement < ActiveRecord::Base
   validates :content_link,  :presence => true
 
   has_many   :ratings, :dependent => :destroy
-  belongs_to :user, :dependent => :destroy
+  belongs_to :user
 
   def user_rating(user_id) 
     Rating.where(user_id: user_id, advertisement_id: id).first

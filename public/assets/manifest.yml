@@ -13,6 +13,10 @@ application.css: application.css
 application/index.css: application.css
 jquery.min.map: jquery.min.map
 jquery/index.min.map: jquery.min.map
+delete.gif: delete.gif
+delete/index.gif: delete.gif
+star.gif: star.gif
+star/index.gif: star.gif
 fontawesome-webfont.eot: fontawesome-webfont.eot
 fontawesome-webfont/index.eot: fontawesome-webfont.eot
 fontawesome-webfont.ttf: fontawesome-webfont.ttf

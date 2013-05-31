@@ -1,16 +1,18 @@
 %p#notice= notice
 
+%script
+  var page_name = "index";
+
 #myCarousel.carousel.slide{"data-interval"=>"false"}
   / Carousel items
   .carousel-inner
     - @advertisements.each do |advertisement|
-      .item 
+      .item{:id => "ad_#{advertisement.id}"}
         .inner-item
           %iframe{:allowscriptaccess => "always", :allowFullScreen => "true", :frameborder => "0", :height => "480", :src => "http://www.youtube.com/embed/#{advertisement.content_link}?rel=0", :title => "YouTube video player", :width => "640"}
 
           .ad-data
-            - is_owner = advertisement.user_id == current_user.id
-            - if is_owner
+            - if advertisement.user_id == current_user.try(:id)
               .name
                 = advertisement.name 
                 (
@@ -19,8 +21,19 @@
             - else
               .name= advertisement.name
 
-            - if advertisement.rating > 0
-              .rating= advertisement.rating
+            .rating{:class => ((advertisement.rating > 0) ? "" : "hidden")}
+              = advertisement.rating.round(2)
+
+            - if current_user && !current_user.advertiser?
+              .user-rating
+                - user_rating = advertisement.user_rating(current_user.id).try(:value)
+                - if user_rating.present?
+                  = "Your rating: #{user_rating}"
+                - else
+                  = form_for [advertisement, advertisement.ratings.build] do |f|
+                    .field
+                      - 5.times do |i|
+                        = f.radio_button :value, i+1, :class => 'star'
 
   / Carousel nav
   %a.carousel-control.left{href: "#myCarousel", "data-slide" => "prev"} &lsaquo;

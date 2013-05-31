@@ -13,6 +13,6 @@ class RatingsController < ApplicationController
     @advertisement.rating = ratings_sum / @advertisement.ratings_count
     @advertisement.save
 
-    redirect_to advertisement_path(@advertisement)
+    render json: { rating:@advertisement.rating.round(2), ad_id:@advertisement.id, your_rating:@ratings.value }
   end
 end
