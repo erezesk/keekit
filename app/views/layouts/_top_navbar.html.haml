@@ -8,15 +8,18 @@
       %a{href: root_path}
         %span.brand Keek!t
       %ul.nav.nav-pills
+      
+        %li{:class => "dropdown"}
+          %a{"data-toggle" => "dropdown", "data-target" => "#", "class" => "dropdown-toggle", "role" => "button", "id" => "ad-dropdown"}
+            .b.icon-picture
+            Advertisements
+            %b{:class => "caret"}
 
-        - if current_user.try(:advertiser?)
-          %li{:class => "dropdown"}
-            %a{"data-toggle" => "dropdown", "data-target" => "#", "class" => "dropdown-toggle", "role" => "button", "id" => "ad-dropdown"}
-              .b.icon-picture
-              Advertisements
-              %b{:class => "caret"}
-
-            %ul{"class" => "dropdown-menu", "role" => "menu", "aria-labelledby" => "ad-dropdown"}
+          %ul{"class" => "dropdown-menu", "role" => "menu", "aria-labelledby" => "ad-dropdown"}
+            %li{role: "presentation"}
+              %a{href: my_rated_advertisements_path, role: "menuitem"}
+                My Rated Advertisements
+            - if current_user.try(:advertiser?)
               %li{role: "presentation"}
                 %a{href: my_advertisements_path, role: "menuitem"}
                   My Advertisements

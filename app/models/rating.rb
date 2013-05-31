@@ -15,4 +15,6 @@ class Rating < ActiveRecord::Base
 
   belongs_to :advertisement
   belongs_to :user
+
+  scope :rated_ads_by_user, lambda{ |user| select(:advertisement_id).where(user_id: user.id) unless user.nil? }
 end

@@ -13,6 +13,6 @@ class RatingsController < ApplicationController
     @advertisement.rating = ratings_sum / @advertisement.ratings_count
     @advertisement.save
 
-    redirect_to advertisement_path(@advertisement)
+    redirect_to root_path
   end
 end

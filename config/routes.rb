@@ -1,7 +1,5 @@
 Keekit::Application.routes.draw do
 
-  # FIXME fix routes
-
   resources :users do
     resources :advertisements
   end
@@ -12,6 +10,7 @@ Keekit::Application.routes.draw do
   end
 
   match 'my_advertisements' => 'advertisements#current_user_ads', :as => :my_advertisements
+  match 'my_rated_advertisements' => 'advertisements#my_rated_ads', :as => :my_rated_advertisements
 
   resources :user_sessions, :only => [:create]
   match 'login' => 'user_sessions#new', :as => :login
