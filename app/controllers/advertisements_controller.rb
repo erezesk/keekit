@@ -2,7 +2,7 @@ class AdvertisementsController < ApplicationController
   # GET /advertisements
   # GET /advertisements.json
   def index
-    @advertisements = Advertisement.all
+    @advertisements = Advertisement.for_homepage(current_user)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -11,13 +11,22 @@ class AdvertisementsController < ApplicationController
   end
 
   def current_user_ads
-    @advertisements = Advertisement.where(user_id: current_user.id)
+    @advertisements = Advertisement.my_ads(current_user)
 
     respond_to do |format|
       format.html { render action: "index" }
       format.json { render json: @advertisements }
     end
   end
+
+  def my_rated_ads
+    @advertisements = Advertisement.my_rated_ads(current_user)
+
+    respond_to do |format|
+      format.html { render action: "index" }
+      format.json { render json: @advertisements }
+    end
+  end 
 
   # GET /advertisements/1
   # GET /advertisements/1.json
@@ -67,7 +76,7 @@ class AdvertisementsController < ApplicationController
 
     respond_to do |format|
       if @advertisement.save
-        format.html { redirect_to @advertisement, notice: 'Advertisement was successfully created.' }
+        format.html { redirect_to my_advertisements_path, notice: 'Advertisement was successfully created.' }
         format.json { render json: @advertisement, status: :created, location: @advertisement }
       else
         format.html { render action: "new" }
@@ -83,24 +92,12 @@ class AdvertisementsController < ApplicationController
 
     respond_to do |format|
       if @advertisement.update_attributes(params[:advertisement])
-        format.html { redirect_to @advertisement, notice: 'Advertisement was successfully updated.' }
+        format.html { redirect_to my_advertisements_path, notice: 'Advertisement was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
         format.json { render json: @advertisement.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /advertisements/1
-  # DELETE /advertisements/1.json
-  def destroy
-    @advertisement = Advertisement.find(params[:id])
-    @advertisement.destroy
-
-    respond_to do |format|
-      format.html { redirect_to advertisements_url }
-      format.json { head :no_content }
     end
   end
 end
