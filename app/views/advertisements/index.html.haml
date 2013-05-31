@@ -9,7 +9,14 @@
           %iframe{:allowscriptaccess => "always", :allowFullScreen => "true", :frameborder => "0", :height => "480", :src => "http://www.youtube.com/embed/#{advertisement.content_link}?rel=0", :title => "YouTube video player", :width => "640"}
 
           .ad-data
-            .name= advertisement.name
+            - if advertisement.user_id == current_user.id
+              .name
+                = advertisement.name 
+                (
+                = link_to 'Edit', edit_advertisement_path(advertisement)
+                )
+            - else
+              .name= advertisement.name
 
             - if advertisement.rating > 0
               .rating= advertisement.rating
