@@ -5,4 +5,3 @@
 $ ->
   $('.dropdown-toggle').dropdown()
   $(".carousel-inner .item:first").addClass("active")
-  $('.carousel').carousel({interval: false})

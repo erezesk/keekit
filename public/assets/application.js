@@ -12308,10 +12308,7 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
 (function() {
   $(function() {
     $('.dropdown-toggle').dropdown();
-    $(".carousel-inner .item:first").addClass("active");
-    return $('.carousel').carousel({
-      interval: false
-    });
+    return $(".carousel-inner .item:first").addClass("active");
   });
 
 }).call(this);
