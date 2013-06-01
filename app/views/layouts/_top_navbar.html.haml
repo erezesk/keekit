@@ -17,16 +17,17 @@
               %b{:class => "caret"}
 
             %ul{"class" => "dropdown-menu", "role" => "menu", "aria-labelledby" => "ad-dropdown"}
-              %li{role: "presentation"}
-                %a{href: my_rated_advertisements_path, role: "menuitem"}
-                  My Rated Advertisements
-              - if current_user.try(:advertiser?)
+              - if current_user.advertiser?
                 %li{role: "presentation"}
                   %a{href: my_advertisements_path, role: "menuitem"}
                     My Advertisements
                 %li{role: "presentation"}
                   %a{href: new_advertisement_path, role: "menuitem"}
                     New Advertisement
+              - else
+                %li{role: "presentation"}
+                  %a{href: my_rated_advertisements_path, role: "menuitem"}
+                    My Rated Advertisements
         
           %li
             %a{href: edit_user_path(current_user.id)}
