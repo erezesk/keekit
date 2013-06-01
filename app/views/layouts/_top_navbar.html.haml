@@ -9,25 +9,25 @@
         %span.brand Keek!t
       %ul.nav.nav-pills
       
-        %li{:class => "dropdown"}
-          %a{"data-toggle" => "dropdown", "data-target" => "#", "class" => "dropdown-toggle", "role" => "button", "id" => "ad-dropdown"}
-            .b.icon-picture
-            Advertisements
-            %b{:class => "caret"}
-
-          %ul{"class" => "dropdown-menu", "role" => "menu", "aria-labelledby" => "ad-dropdown"}
-            %li{role: "presentation"}
-              %a{href: my_rated_advertisements_path, role: "menuitem"}
-                My Rated Advertisements
-            - if current_user.try(:advertiser?)
-              %li{role: "presentation"}
-                %a{href: my_advertisements_path, role: "menuitem"}
-                  My Advertisements
-              %li{role: "presentation"}
-                %a{href: new_advertisement_path, role: "menuitem"}
-                  New Advertisement
-        
         - if current_user
+          %li{:class => "dropdown"}
+            %a{"data-toggle" => "dropdown", "data-target" => "#", "class" => "dropdown-toggle", "role" => "button", "id" => "ad-dropdown"}
+              .b.icon-picture
+              Advertisements
+              %b{:class => "caret"}
+
+            %ul{"class" => "dropdown-menu", "role" => "menu", "aria-labelledby" => "ad-dropdown"}
+              %li{role: "presentation"}
+                %a{href: my_rated_advertisements_path, role: "menuitem"}
+                  My Rated Advertisements
+              - if current_user.try(:advertiser?)
+                %li{role: "presentation"}
+                  %a{href: my_advertisements_path, role: "menuitem"}
+                    My Advertisements
+                %li{role: "presentation"}
+                  %a{href: new_advertisement_path, role: "menuitem"}
+                    New Advertisement
+        
           %li
             %a{href: edit_user_path(current_user.id)}
               .b.icon-user
