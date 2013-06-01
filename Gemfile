@@ -45,7 +45,7 @@ gem 'authlogic'
 #authlogic gempage: https://github.com/binarylogic/authlogic
 
 #country-select gem: https://github.com/jamesds/country-select
-gem 'country-select'
+# gem 'country-select'
 ################################
 ##############DATE PICKER!!!!
 ################################
