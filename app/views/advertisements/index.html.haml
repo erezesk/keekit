@@ -44,31 +44,32 @@
     %a.carousel-control.right{href: "#myCarousel", "data-slide" => "next"} &rsaquo;
 
 / REMOVE THIS
-%table
-  %tr
-    %th Name
-    %th Active
-    %th Views
-    %th Ratings count
-    %th Rating
-    %th Created at
-    %th Updated at
-    %th Content link
-    %th Ad type
-    %th User id
-
-  - @advertisements.each do |advertisement|
+- unless Rails.env.production?
+  %table
     %tr
-      %td= advertisement.name
-      %td= advertisement.active
-      %td= advertisement.views
-      %td= advertisement.ratings_count
-      %td= advertisement.rating
-      %td= advertisement.created_at
-      %td= advertisement.updated_at
-      %td= advertisement.content_link
-      %td= advertisement.ad_type
-      %td= advertisement.user_id
-      %td= link_to 'Show', advertisement
-      %td= link_to 'Edit', edit_advertisement_path(advertisement)
-      %td= link_to 'Destroy', advertisement, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th Name
+      %th Active
+      %th Views
+      %th Ratings count
+      %th Rating
+      %th Created at
+      %th Updated at
+      %th Content link
+      %th Ad type
+      %th User id
+
+    - @advertisements.each do |advertisement|
+      %tr
+        %td= advertisement.name
+        %td= advertisement.active
+        %td= advertisement.views
+        %td= advertisement.ratings_count
+        %td= advertisement.rating
+        %td= advertisement.created_at
+        %td= advertisement.updated_at
+        %td= advertisement.content_link
+        %td= advertisement.ad_type
+        %td= advertisement.user_id
+        %td= link_to 'Show', advertisement
+        %td= link_to 'Edit', edit_advertisement_path(advertisement)
+        %td= link_to 'Destroy', advertisement, :method => :delete, :data => { :confirm => 'Are you sure?' }
