@@ -16,8 +16,10 @@
   .control-group
     = f.label :user_type, :class => 'control-label'
     .controls
-      /= f.text_field :user_type, :class => 'text_field'
-      = f.select :user_type, options_for_select(["Viewer", "Advertiser"]), :class => 'select'
+      - unless current_user
+        = f.select :user_type, options_for_select(["Viewer", "Advertiser"]), :class => 'select'
+      - else
+        = f.select :user_type, options_for_select(["Viewer", "Advertiser"], @user.user_type), :class => 'select'
   .control-group
     = f.label :birthday, :class => 'control-label'
     .controls

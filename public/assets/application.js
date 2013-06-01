@@ -12307,8 +12307,8 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
 
 (function() {
   $(function() {
+    $('.dropdown-toggle').dropdown();
     if (page_name === "index") {
-      $('.dropdown-toggle').dropdown();
       $(".carousel-inner .item:first").addClass("active");
       return $("span.star-rating-control div.star-rating").click(function() {
         return $.ajax({

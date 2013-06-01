@@ -3,8 +3,9 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
+  $('.dropdown-toggle').dropdown()
+
   if page_name == "index"
-    $('.dropdown-toggle').dropdown()
     $(".carousel-inner .item:first").addClass("active")
 
     $("span.star-rating-control div.star-rating").click -> 

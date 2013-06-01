@@ -3,41 +3,45 @@
 %script
   var page_name = "index";
 
-#myCarousel.carousel.slide{"data-interval"=>"false"}
-  / Carousel items
-  .carousel-inner
-    - @advertisements.each do |advertisement|
-      .item{:id => "ad_#{advertisement.id}"}
-        .inner-item
-          %iframe{:allowscriptaccess => "always", :allowFullScreen => "true", :frameborder => "0", :height => "480", :src => "http://www.youtube.com/embed/#{advertisement.content_link}?rel=0", :title => "YouTube video player", :width => "640"}
+- unless @advertisements.size > 0
+  %h3.no-ads
+    There are no new ads to show
+- else
+  #myCarousel.carousel.slide{"data-interval"=>"false"}
+    / Carousel items
+    .carousel-inner
+      - @advertisements.each do |advertisement|
+        .item{:id => "ad_#{advertisement.id}"}
+          .inner-item
+            %iframe{:allowscriptaccess => "always", :allowFullScreen => "true", :frameborder => "0", :height => "480", :src => "http://www.youtube.com/embed/#{advertisement.content_link}?rel=0", :title => "YouTube video player", :width => "640"}
 
-          .ad-data
-            - if advertisement.user_id == current_user.try(:id)
-              .name
-                = advertisement.name 
-                (
-                = link_to 'Edit', edit_advertisement_path(advertisement)
-                )
-            - else
-              .name= advertisement.name
+            .ad-data
+              - if advertisement.user_id == current_user.try(:id)
+                .name
+                  = advertisement.name 
+                  (
+                  = link_to 'Edit', edit_advertisement_path(advertisement)
+                  )
+              - else
+                .name= advertisement.name
 
-            .rating{:class => ((advertisement.rating > 0) ? "" : "hidden")}
-              = advertisement.rating.round(2)
+              .rating{:class => ((advertisement.rating > 0) ? "" : "hidden")}
+                = advertisement.rating.round(2)
 
-            - if current_user && !current_user.advertiser?
-              .user-rating
-                - user_rating = advertisement.user_rating(current_user.id).try(:value)
-                - if user_rating.present?
-                  = "Your rating: #{user_rating}"
-                - else
-                  = form_for [advertisement, advertisement.ratings.build] do |f|
-                    .field
-                      - 5.times do |i|
-                        = f.radio_button :value, i+1, :class => 'star'
+              - if current_user && !current_user.advertiser?
+                .user-rating
+                  - user_rating = advertisement.user_rating(current_user.id).try(:value)
+                  - if user_rating.present?
+                    = "Your rating: #{user_rating}"
+                  - else
+                    = form_for [advertisement, advertisement.ratings.build] do |f|
+                      .field
+                        - 5.times do |i|
+                          = f.radio_button :value, i+1, :class => 'star'
 
-  / Carousel nav
-  %a.carousel-control.left{href: "#myCarousel", "data-slide" => "prev"} &lsaquo;
-  %a.carousel-control.right{href: "#myCarousel", "data-slide" => "next"} &rsaquo;
+    / Carousel nav
+    %a.carousel-control.left{href: "#myCarousel", "data-slide" => "prev"} &lsaquo;
+    %a.carousel-control.right{href: "#myCarousel", "data-slide" => "next"} &rsaquo;
 
 / REMOVE THIS
 %table
