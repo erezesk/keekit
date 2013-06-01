@@ -28,15 +28,21 @@
                 %li{role: "presentation"}
                   %a{href: my_rated_advertisements_path, role: "menuitem"}
                     My Rated Advertisements
-        
-          %li
-            %a{href: edit_user_path(current_user.id)}
-              .b.icon-user
-              Edit Profile
-          %li
-            %a{href: logout_path}
-              .b.icon-eject
-              Logout
+            
+            %li{:class => "dropdown"}
+              %a{"data-toggle" => "dropdown", "data-target" => "#", "class" => "dropdown-toggle", "role" => "button", "id" => "user-dropdown"}
+                .b.icon-user
+                = "Welcome, #{current_user.username}"
+                %b{:class => "caret"}
+
+              %ul{"class" => "dropdown-menu", "role" => "menu", "aria-labelledby" => "user-dropdown"}
+                %li{role: "presentation"}
+                  %a{href: edit_user_path(current_user.id), role: "menuitem"}
+                    Edit Profile
+                %li{role: "presentation"}
+                  %a{href: logout_path, role: "menuitem"}
+                    Logout
+                    
         - else
           %li
             %a{href: new_user_path}
