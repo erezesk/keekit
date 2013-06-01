@@ -1,4 +1,7 @@
 class AdvertisementsController < ApplicationController
+  before_filter :validate_owner, :only => [:edit, :update]
+  before_filter :validate_advertiser, :only => [:new, :create]
+
   # GET /advertisements
   # GET /advertisements.json
   def index
@@ -31,6 +34,8 @@ class AdvertisementsController < ApplicationController
   # GET /advertisements/1
   # GET /advertisements/1.json
   def show
+    redirect_to root_path and return
+
     @advertisement = Advertisement.find(params[:id])
 
     if current_user
@@ -57,7 +62,6 @@ class AdvertisementsController < ApplicationController
 
   # GET /advertisements/1/edit
   def edit
-    @advertisement = Advertisement.find(params[:id])
   end
 
   # POST /advertisements
@@ -88,8 +92,6 @@ class AdvertisementsController < ApplicationController
   # PUT /advertisements/1
   # PUT /advertisements/1.json
   def update
-    @advertisement = Advertisement.find(params[:id])
-
     respond_to do |format|
       if @advertisement.update_attributes(params[:advertisement])
         format.html { redirect_to my_advertisements_path, notice: 'Advertisement was successfully updated.' }
@@ -99,5 +101,16 @@ class AdvertisementsController < ApplicationController
         format.json { render json: @advertisement.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  private
+
+  def validate_owner
+    @advertisement = Advertisement.find(params[:id])
+    redirect_to root_path unless current_user.try(:id) == @advertisement.user_id
+  end
+  
+  def validate_advertiser
+    redirect_to root_path unless current_user.try(:advertiser?)
   end
 end
