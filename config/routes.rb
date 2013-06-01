@@ -1,6 +1,6 @@
 Keekit::Application.routes.draw do
 
-  resources :users
+  resources :users, :except => [:destroy]
 
   resources :advertisements, :except => [:destroy] do
     resources :ratings, :only => :create
