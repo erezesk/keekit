@@ -1,6 +1,7 @@
 class AdvertisementsController < ApplicationController
   before_filter :validate_owner, :only => [:edit, :update]
-  before_filter :validate_advertiser, :only => [:new, :create]
+  before_filter :validate_advertiser, :only => [:new, :create, :current_user_ads]
+  before_filter :validate_logged_in, :only => [:my_rated_ads]
 
   # GET /advertisements
   # GET /advertisements.json
@@ -112,5 +113,9 @@ class AdvertisementsController < ApplicationController
   
   def validate_advertiser
     redirect_to root_path unless current_user.try(:advertiser?)
+  end
+
+  def validate_logged_in
+    redirect_to root_path unless current_user
   end
 end
