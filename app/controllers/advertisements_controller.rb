@@ -38,6 +38,15 @@ class AdvertisementsController < ApplicationController
     end
   end 
 
+  def most_popular
+    @advertisements = Advertisement.most_popular
+
+    respond_to do |format|
+      format.html { render action: "index" }
+      format.json { render json: @advertisements }
+    end
+  end 
+
   # GET /advertisements/1
   # GET /advertisements/1.json
   def show

@@ -28,12 +28,13 @@ class Advertisement < ActiveRecord::Base
   scope :only_active, where(active: true)
   scope :by_user, lambda{ |user| where(user_id: user.id) unless user.nil? }
   scope :not_by_user, lambda{ |user| where("user_id != #{user.id}") unless user.nil? }
-
+  scope :excluding_ids, lambda { |ids| where("id not in(#{ids.join(',')})") unless ids.blank? }  
   scope :not_rated_by_user, lambda { |user| where("id not in(#{(Rating.rated_ads_by_user(user).collect(&:advertisement_id)<<0).join(',')})") unless user.nil? }
+  
   scope :for_homepage, lambda { |user| only_active.not_by_user(user).not_rated_by_user(user) }
   scope :my_ads, lambda { |user| by_user(user) }
-  scope :my_rated_ads, lambda { |user| where(:id => Rating.rated_ads_by_user(user).collect(&:advertisement_id)) unless user.nil? }
-  scope :excluding_ids, lambda { |ids| where("id not in(#{ids.join(',')})") unless ids.blank? }
+  scope :my_rated_ads, lambda { |user| only_active.where(:id => Rating.rated_ads_by_user(user).collect(&:advertisement_id)) unless user.nil? }
+  scope :most_popular, only_active.order("rating desc")
 
   def user_rating(user_id) 
     Rating.where(user_id: user_id, advertisement_id: id).first

@@ -17,6 +17,9 @@
               %b{:class => "kt-caret"}
 
             %ul{"class" => "dropdown-menu", "role" => "menu", "aria-labelledby" => "ad-dropdown"}
+              %li{role: "presentation"}
+                %a{href: popular_advertisements_path, role: "menuitem"}
+                  Most Popular
               - if current_user.advertiser?
                 %li{role: "presentation"}
                   %a{href: my_advertisements_path, role: "menuitem"}
