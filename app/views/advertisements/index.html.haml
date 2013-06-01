@@ -5,7 +5,25 @@
   != facebook_init_script
 
 :javascript
-  var page_name = "index";
+  var pageName = "index";
+
+  $(function() {
+    $('.dropdown-toggle').dropdown();
+    $(".carousel-inner .item:first").addClass("active");
+
+    $("span.star-rating-control div.star-rating").click(function() { 
+      $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: ($(this).parents("form").attr("action") + ".json"),
+        data: { rating: { value: $(this).parents("form").find("[name='rating[value]']:checked").val() } },
+        success: function(obj) {
+          $("#car_item_" + obj.ad_id).find(".rating").text(obj.rating).removeClass("hidden");
+          $("#car_item_" + obj.ad_id).find("div.field").text("Your rating: " + obj.your_rating).children().remove();
+        }
+      });
+    });
+  });
 
 - unless @advertisements.size > 0
   %h3.no-ads
