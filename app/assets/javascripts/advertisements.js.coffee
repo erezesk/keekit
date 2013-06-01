@@ -15,6 +15,6 @@ $ ->
         url: ($(this).parents("form").attr("action") + ".json"),
         data: { rating: { value: $(this).parents("form").find("[name='rating[value]']:checked").val() } },
         success: (obj) ->
-          $("#ad_" + obj.ad_id).find(".rating").text(obj.rating).removeClass("hidden")
-          $("#ad_" + obj.ad_id).find("div.field").text("Your rating: " + obj.your_rating).children().remove()
+          $("#car_item_" + obj.ad_id).find(".rating").text(obj.rating).removeClass("hidden")
+          $("#car_item_" + obj.ad_id).find("div.field").text("Your rating: " + obj.your_rating).children().remove()
       })

@@ -11,7 +11,7 @@
     / Carousel items
     .carousel-inner
       - @advertisements.each do |advertisement|
-        .item{:id => "ad_#{advertisement.id}"}
+        .item{:id => "car_item_#{advertisement.id}"}
           .inner-item
             %iframe{:allowscriptaccess => "always", :allowFullScreen => "true", :frameborder => "0", :height => "480", :src => "http://www.youtube.com/embed/#{advertisement.content_link}?rel=0", :title => "YouTube video player", :width => "640"}
 

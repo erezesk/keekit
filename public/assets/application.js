@@ -12321,8 +12321,8 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
             }
           },
           success: function(obj) {
-            $("#ad_" + obj.ad_id).find(".rating").text(obj.rating).removeClass("hidden");
-            return $("#ad_" + obj.ad_id).find("div.field").text("Your rating: " + obj.your_rating).children().remove();
+            $("#car_item_" + obj.ad_id).find(".rating").text(obj.rating).removeClass("hidden");
+            return $("#car_item_" + obj.ad_id).find("div.field").text("Your rating: " + obj.your_rating).children().remove();
           }
         });
       });
