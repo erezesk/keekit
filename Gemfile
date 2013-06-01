@@ -20,6 +20,7 @@ gem 'compass'
 gem 'compass-rails'
 gem 'jquery-star-rating-rails'
 gem 'coletivo', :git => 'git://github.com/base16soft/coletivo.git'
+gem 'facebook_share'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -1,6 +1,10 @@
 %p#notice= notice
 
+!= facebook_connect_js_tag
 %script
+  != facebook_init_script
+
+:javascript
   var page_name = "index";
 
 - unless @advertisements.size > 0
@@ -38,6 +42,14 @@
                       .field
                         - 5.times do |i|
                           = f.radio_button :value, i+1, :class => 'star'
+
+              #fb-root
+              = link_to 'Share on Facebook', '#', :class => "fb_share", :id => "fb_share_#{advertisement.id}"
+              :javascript
+                $("#fb_share_#{advertisement.id}").unbind("click.facebook_share").bind("click.facebook_share",function () {
+                  FB.ui({method: 'feed', link: "http://www.youtube.com/watch?v=#{advertisement.content_link}", name: "Check out this awesome ad", description: "As seen on:", properties: [{ text: 'Keekit', href: 'http://keekit.heroku.com/'}]});
+                  return false;
+                });
 
     / Carousel nav
     %a.carousel-control.left{href: "#myCarousel", "data-slide" => "prev"} &lsaquo;

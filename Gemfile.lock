@@ -83,6 +83,7 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    facebook_share (0.0.6)
     fssm (0.2.9)
     haml (4.0.2)
       tilt
@@ -169,6 +170,7 @@ DEPENDENCIES
   compass-rails
   country-select
   debugger
+  facebook_share
   haml
   haml-rails
   jquery-rails
