@@ -1,12 +1,4 @@
 --- 
-background.jpg: background.jpg
-background/index.jpg: background.jpg
-container-wrapper.png: container-wrapper.png
-container-wrapper/index.png: container-wrapper.png
-rails.png: rails.png
-rails/index.png: rails.png
-rating-star.gif: rating-star.gif
-rating-star/index.gif: rating-star.gif
 application.js: application.js
 application/index.js: application.js
 application.css: application.css

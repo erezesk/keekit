@@ -6,7 +6,7 @@
         %span.icon-bar
         %span.icon-bar
       %a{href: root_path}
-        %span.brand Keek!t
+        %span.brand
       %ul.nav.nav-pills
       
         - if current_user
@@ -14,7 +14,7 @@
             %a{"data-toggle" => "dropdown", "data-target" => "#", "class" => "dropdown-toggle", "role" => "button", "id" => "ad-dropdown"}
               .b.icon-picture
               Advertisements
-              %b{:class => "caret"}
+              %b{:class => "kt-caret"}
 
             %ul{"class" => "dropdown-menu", "role" => "menu", "aria-labelledby" => "ad-dropdown"}
               - if current_user.advertiser?
@@ -33,7 +33,7 @@
               %a{"data-toggle" => "dropdown", "data-target" => "#", "class" => "dropdown-toggle", "role" => "button", "id" => "user-dropdown"}
                 .b.icon-user
                 = "Welcome, #{current_user.username}"
-                %b{:class => "caret"}
+                %b{:class => "kt-caret"}
 
               %ul{"class" => "dropdown-menu", "role" => "menu", "aria-labelledby" => "user-dropdown"}
                 %li{role: "presentation"}

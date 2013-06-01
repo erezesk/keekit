@@ -13732,37 +13732,59 @@ ul.icons {
   background-color: #252525;
   background-image: none;
 }
-/* line 12, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
-.navbar .navbar-inner .container .brand {
-  color: red;
-  text-shadow: none;
+/* line 11, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+.navbar .navbar-inner .kt-caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: top;
+  border-top: 8px solid gray;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+  margin-top: 8px;
+  content: "";
 }
-/* line 13, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 24, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+.navbar .navbar-inner .container .brand {
+  background-image: url("kt-logo.jpg");
+  background-size: 100%;
+  width: 55px;
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+/* line 32, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .navbar .navbar-inner .container a {
   color: white;
   text-shadow: none;
 }
-/* line 16, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 35, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .navbar .navbar-inner .container a:hover {
   color: red;
 }
-/* line 18, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 37, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .navbar .navbar-inner .container .dropdown.open .dropdown-toggle {
   background-color: #252525;
   color: red;
 }
-/* line 19, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 38, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .navbar .navbar-inner .container .dropdown-menu {
   background-color: #252525;
 }
+/* line 39, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+.navbar .navbar-inner .container .nav {
+  font-size: 21px;
+  margin-top: 18px;
+  margin-left: 25px;
+}
 
-/* line 23, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 47, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .form-horizontal .form-actions {
   background-color: transparent;
   border-top: none;
 }
 
-/* line 28, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 52, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 body .container .content .row {
   background-image: url("container-wrapper.png");
   border-radius: 15px;
