@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/base16soft/coletivo.git
+  revision: 387fe83bc7616474955ae7c29b42c2b7632be575
+  specs:
+    coletivo (0.0.4)
+      rails (>= 3.0.7)
+
+GIT
   remote: git://github.com/ctran/annotate_models.git
   revision: 8bd159c7a484093fde84beaa9e6398f25ddacf09
   specs:
@@ -157,6 +164,7 @@ DEPENDENCIES
   annotate!
   authlogic
   coffee-rails (~> 3.2.1)
+  coletivo!
   compass
   compass-rails
   country-select

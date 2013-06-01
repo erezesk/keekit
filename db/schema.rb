@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130504193321) do
+ActiveRecord::Schema.define(:version => 20130601155904) do
 
   create_table "advertisements", :force => true do |t|
     t.string   "name"
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(:version => 20130504193321) do
     t.string   "ad_type"
     t.integer  "user_id"
   end
+
+  create_table "person_ratings", :force => true do |t|
+    t.integer  "person_id"
+    t.string   "person_type"
+    t.integer  "rateable_id"
+    t.string   "rateable_type"
+    t.decimal  "weight",        :precision => 5, :scale => 2
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
+  end
+
+  add_index "person_ratings", ["rateable_type"], :name => "index_person_ratings_on_rateable_type"
 
   create_table "ratings", :force => true do |t|
     t.integer  "value"

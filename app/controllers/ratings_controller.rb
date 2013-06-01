@@ -13,6 +13,9 @@ class RatingsController < ApplicationController
     @advertisement.rating = ratings_sum / @advertisement.ratings_count
     @advertisement.save
 
+    # for coletivo recommendations
+    current_user.rate!(@advertisement, @ratings.value)
+
     render json: { rating:@advertisement.rating.round(2), ad_id:@advertisement.id, your_rating:@ratings.value }
   end
 end

@@ -19,6 +19,7 @@ gem 'coffee-rails', '~> 3.2.1'
 gem 'compass'
 gem 'compass-rails'
 gem 'jquery-star-rating-rails'
+gem 'coletivo', :git => 'git://github.com/base16soft/coletivo.git'
 
 # Gems used only for assets and not required
 # in production environments by default.

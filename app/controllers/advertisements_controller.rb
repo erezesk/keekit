@@ -6,7 +6,13 @@ class AdvertisementsController < ApplicationController
   # GET /advertisements
   # GET /advertisements.json
   def index
-    @advertisements = Advertisement.for_homepage(current_user)
+    if (current_user && !current_user.advertiser?)
+      @advertisements = Advertisement.find_recommendations_for(current_user)
+      
+      @advertisements += Advertisement.for_homepage(current_user).excluding_ids(@advertisements.collect(&:id))
+    else
+      @advertisements = Advertisement.for_homepage(current_user)
+    end
 
     respond_to do |format|
       format.html # index.html.erb

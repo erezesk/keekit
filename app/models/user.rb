@@ -18,6 +18,7 @@
 class User < ActiveRecord::Base
   attr_accessible :birthday, :country, :email, :user_type, :username
   attr_accessible :password, :password_confirmation
+  has_own_preferences
 
   acts_as_authentic
 
