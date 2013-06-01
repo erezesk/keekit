@@ -1,12 +1,9 @@
 Keekit::Application.routes.draw do
 
-  resources :users do
-    resources :advertisements
-  end
+  resources :users
 
-  # resources :advertisements, :only => [:index] do
-  resources :advertisements do
-    resources :ratings
+  resources :advertisements, :except => [:destroy] do
+    resources :ratings, :only => :create
   end
 
   match 'my_advertisements' => 'advertisements#current_user_ads', :as => :my_advertisements
