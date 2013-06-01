@@ -2,7 +2,7 @@
 
 :javascript
   var pageName = "index";
-  $(
+  $(function() {
     $('.dropdown-toggle').dropdown();
     $(".carousel-inner .item:first").addClass("active");
 
@@ -18,7 +18,7 @@
         }
       });
     });
-  );
+  });
 
 - unless @advertisements.size > 0
   %h3.no-ads
