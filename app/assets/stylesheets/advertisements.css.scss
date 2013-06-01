@@ -38,6 +38,17 @@
         .user-rating {
           width: 105px;
           margin: 0 auto;
+          height: 22px;
+          margin-top: 5px;
+        }
+
+        button.facebook_share {
+          background: url("facebook_share.png");
+          background-size: 100%;
+          width: 122px;
+          height: 42px;
+          border: none;
+          margin-top: 10px;
         }
       }
     }
