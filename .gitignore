@@ -16,8 +16,4 @@
 
 *.DS_Store
 
-/public/assets/*.css
-/public/assets/*.js
-/public/assets/*.gz
-
 *~
