@@ -7,6 +7,7 @@ Keekit::Application.routes.draw do
   end
 
   post 'ratings/:advertisement_id/rate' => 'ratings#create', as: :rate_ad
+  post 'shared/:id' => 'advertisements#fb_shared', as: :ad_shared
   match 'my_advertisements' => 'advertisements#current_user_ads', :as => :my_advertisements
   match 'my_rated_advertisements' => 'advertisements#my_rated_ads', :as => :my_rated_advertisements
   match 'popular_advertisements' => 'advertisements#most_popular', :as => :popular_advertisements

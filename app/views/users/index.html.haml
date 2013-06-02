@@ -6,7 +6,7 @@
     %th Email
     %th Type
     %th Birthday
-    %th Country
+    %th gender
     %th
     %th
     %th
@@ -17,7 +17,7 @@
       %td= user.email
       %td= user.user_type
       %td= user.birthday
-      %td= user.country
+      %td= user.gender
       %td= link_to 'Show', user
       %td= link_to 'Edit', edit_user_path(user)
       %td= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }

@@ -16,7 +16,7 @@
 #
 
 class Advertisement < ActiveRecord::Base
-  attr_accessible :name, :active, :views, :ratings_count, :rating, :created_at, 
+  attr_accessible :name, :active, :shares, :ratings_count, :rating, :created_at, 
                   :updated_at, :content_link, :ad_type, :user_id
 
   validates :name,  :presence => true

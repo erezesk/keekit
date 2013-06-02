@@ -22,6 +22,19 @@
         }
       });
     });
+
+    $("body").keydown(function(e){
+      // left arrow
+      if (e.which == 37)
+      {   
+          $("#myCarousel").carousel("prev");
+      }
+      // right arrow
+      if (e.which == 39)
+      {
+          $("#myCarousel").carousel("next");
+      }   
+    });
   });
 
 - unless @advertisements.size > 0
@@ -62,12 +75,20 @@
               
               .stats_count
                 %p.first=  "Raters: #{advertisement.ratings_count}"
-                %p.second= "Shares: #{advertisement.views}"
+                %p.second= "Shares: #{advertisement.shares}"
 
               %button.facebook_share{ :id => "fb_share_#{advertisement.id}" }
               :javascript
                 $("#fb_share_#{advertisement.id}").click(function () {
                   FB.ui({method: 'feed', link: "http://www.youtube.com/watch?v=#{advertisement.content_link}", name: "Check out this awesome ad", description: "As seen on:", properties: [{ text: 'Keekit', href: 'http://keekit.heroku.com/'}]});
+
+                  $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: "/shared/#{advertisement.id}",
+                    data: { }
+                  });
+
                   return false;
                 });
 
@@ -81,7 +102,7 @@
 /     %tr
 /       %th Name
 /       %th Active
-/       %th Views
+/       %th Shares
 /       %th Ratings count
 /       %th Rating
 /       %th Created at
@@ -94,7 +115,7 @@
 /       %tr
 /         %td= advertisement.name
 /         %td= advertisement.active
-/         %td= advertisement.views
+/         %td= advertisement.shares
 /         %td= advertisement.ratings_count
 /         %td= advertisement.rating
 /         %td= advertisement.created_at

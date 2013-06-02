@@ -11,12 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130601155904) do
+ActiveRecord::Schema.define(:version => 20130602212020) do
 
   create_table "advertisements", :force => true do |t|
     t.string   "name"
     t.boolean  "active",        :default => true
-    t.integer  "views",         :default => 0
+    t.integer  "shares",        :default => 0
     t.integer  "ratings_count", :default => 0
     t.float    "rating",        :default => 0.0
     t.datetime "created_at",                      :null => false
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(:version => 20130601155904) do
     t.string   "username"
     t.string   "email"
     t.datetime "birthday"
-    t.string   "country"
+    t.string   "gender"
     t.string   "crypted_password"
     t.string   "password_salt"
     t.string   "persistence_token"

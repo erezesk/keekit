@@ -20,6 +20,15 @@ class AdvertisementsController < ApplicationController
     end
   end
 
+  def fb_shared
+    @advertisement = Advertisement.find(params[:id])
+
+    @advertisement.shares += 1
+    @advertisement.save
+
+    render json: { }
+  end
+
   def current_user_ads
     @advertisements = Advertisement.my_ads(current_user)
 

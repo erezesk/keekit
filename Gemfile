@@ -21,6 +21,7 @@ gem 'compass-rails'
 gem 'jquery-star-rating-rails'
 gem 'coletivo', :git => 'git://github.com/base16soft/coletivo.git'
 gem 'facebook_share'
+gem 'bootstrap-datepicker-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -44,14 +45,9 @@ gem 'authlogic'
 #authlogic guide: http://www.logansbailey.com/2010/10/06/how-to-setup-authlogic-in-rails-3/
 #authlogic gempage: https://github.com/binarylogic/authlogic
 
-#country-select gem: https://github.com/jamesds/country-select
-# gem 'country-select'
 ################################
 ##############DATE PICKER!!!!
 ################################
-
-#### Facebook sharing:
-# http://railslove.com/blog/2011/02/22/introducing-simple-facebook-share-gem/
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

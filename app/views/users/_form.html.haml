@@ -1,3 +1,12 @@
+:javascript
+  $(function() {
+    $("[data-behaviour~='datepicker']").datepicker({
+      "format": "dd-mm-yyyy",
+      "weekStart": 1,
+      "autoclose": true
+    });
+  });
+
 = form_for @user, :html => { :class => 'form-horizontal user-edit-form' } do |f|
   - if @user.errors.any?
     #error_explanation
@@ -23,11 +32,14 @@
   .control-group
     = f.label :birthday, :class => 'control-label'
     .controls
-      = f.text_field :birthday, class: "text_field", value: Date.current
+      = f.text_field :birthday, "class" => "text_field", "data-behaviour" => "datepicker"
   .control-group
-    = f.label :country, :class => 'control-label'
+    = f.label :gender, :class => 'control-label'
     .controls
-      = f.text_field :country, :class => 'text_field'
+      - unless current_user
+        = f.select :gender, options_for_select(["Male", "Female"]), :class => 'select'
+      - else
+        = f.select :gender, options_for_select(["Male", "Female"], @user.gender), :class => 'select'
   .control-group
     = f.label :password, :class => 'control-label'
     .controls
@@ -38,5 +50,3 @@
       = f.password_field :password_confirmation, :class => 'text_field'
   .form-actions
     = f.submit nil, class: 'btn btn-primary'
-
-/ FIXME country and date select
