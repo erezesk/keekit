@@ -36,7 +36,7 @@
       - @advertisements.each do |advertisement|
         .item{:id => "car_item_#{advertisement.id}"}
           .inner-item
-            %iframe{:allowscriptaccess => "always", :allowFullScreen => "true", :frameborder => "0", :height => "480", :src => "http://www.youtube.com/embed/#{advertisement.content_link}?rel=0", :title => "YouTube video player", :width => "640"}
+            %iframe{:allowscriptaccess => "always", :allowFullScreen => "true", :frameborder => "0", :height => "390", :src => "http://www.youtube.com/embed/#{advertisement.content_link}?rel=0", :title => "YouTube video player", :width => "640"}
 
             .ad-data
               - if advertisement.user_id == current_user.try(:id)
