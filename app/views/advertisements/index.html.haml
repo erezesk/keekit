@@ -41,12 +41,12 @@
             .ad-data
               - if advertisement.user_id == current_user.try(:id)
                 .name
-                  = advertisement.name 
+                  = advertisement.name.titleize 
                   (
                   = link_to 'Edit', edit_advertisement_path(advertisement)
                   )
               - else
-                .name= advertisement.name
+                .name= advertisement.name.titleize
 
               .rating{:class => ((advertisement.rating > 0) ? "" : "hidden")}
                 = advertisement.rating.round(2)

@@ -17,13 +17,15 @@
         display: inline-block;
         vertical-align: top;
         text-align: center;
-        width: 37%;
+        width: 39%;
+        height: 390px;
 
         .name { 
-          font-size: 20px;
+          font-size: 28px;
           font-weight: bold;
-          color: black;
+          color: white;
           margin: 0 auto;
+          a { color: white; font-size: 28px; }
         }
 
         .rating { 
@@ -35,6 +37,7 @@
           font-size: 20px;
           text-align: center;
           margin: 0 auto;
+          margin-top: 60px;
         }
 
         .user-rating {
@@ -51,6 +54,10 @@
           height: 42px;
           border: none;
           margin-top: 10px;
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          margin-right: 70px;
         }
       }
     }
