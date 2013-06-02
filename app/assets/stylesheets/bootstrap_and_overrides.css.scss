@@ -22,12 +22,10 @@
 
   .container { 
     .brand { 
-      background-image: url("kt-logo.jpg"); 
-      background-size: 100%;
-      width: 55px;
-      height: 40px;
+      color: red;
+      text-shadow: none;
+      font-size: 23px;
       margin-top: 10px;
-      margin-bottom: 10px;
     }
     a { 
       color: white;  
@@ -38,8 +36,8 @@
     .dropdown-menu { background-color: #252525; }
     .nav {
       font-size: 21px;
-      margin-top: 18px;
-      margin-left: 25px;
+      margin-top: 10px;
+      margin-left: 0px;
     }
 
     .dropdown .dropdown-menu a[role=menuitem]{
