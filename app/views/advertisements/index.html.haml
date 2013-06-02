@@ -55,7 +55,7 @@
                   - if user_rating.present?
                     = "Your rating: #{user_rating}"
                   - else
-                    = form_for [advertisement, advertisement.ratings.build] do |f|
+                    = form_for advertisement.ratings.build, url: rate_ad_path(advertisement.id) do |f|
                       .field
                         - 5.times do |i|
                           = f.radio_button :value, i+1, :class => 'star'
