@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#myCarousel { margin-left: -30px }
+#myCarousel { margin-left: -30px; margin-top: 20px; }
 
 .carousel-inner {
   .item { 
@@ -25,6 +25,7 @@
           font-weight: bold;
           color: white;
           margin: 0 auto;
+          height: 115px;
           a { color: white; font-size: 28px; }
         }
 
@@ -37,7 +38,7 @@
           font-size: 20px;
           text-align: center;
           margin: 0 auto;
-          margin-top: 60px;
+          margin-top: -15px;
         }
 
         .user-rating {
@@ -58,6 +59,21 @@
           right: 0;
           bottom: 0;
           margin-right: 70px;
+        }
+
+        .stats_count {
+          position: absolute;
+          bottom: 0;
+          margin-left: 10px;
+          margin-bottom: 14px;
+          color: black;
+          width: 23%;
+          p {
+            font-size: 18px;
+            display: inline;
+            &.first { margin-left: -30px; }
+            &.second { margin-left: 50px; }
+          }
         }
       }
     }

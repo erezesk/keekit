@@ -46,8 +46,8 @@
               - else
                 .name= advertisement.name.titleize
 
-              .rating{:class => ((advertisement.rating > 0) ? "" : "hidden")}
-                = advertisement.rating.round(2)
+              .rating
+                = advertisement.rating.round(2) if advertisement.rating > 0
 
               - if current_user && !current_user.advertiser?
                 .user-rating
@@ -60,6 +60,10 @@
                         - 5.times do |i|
                           = f.radio_button :value, i+1, :class => 'star'
               
+              .stats_count
+                %p.first=  "Raters: #{advertisement.ratings_count}"
+                %p.second= "Shares: #{advertisement.views}"
+
               %button.facebook_share{ :id => "fb_share_#{advertisement.id}" }
               :javascript
                 $("#fb_share_#{advertisement.id}").click(function () {
@@ -72,32 +76,32 @@
     %a.carousel-control.right{href: "#myCarousel", "data-slide" => "next"} &rsaquo;
 
 / REMOVE THIS
-- unless Rails.env.production?
-  %table
-    %tr
-      %th Name
-      %th Active
-      %th Views
-      %th Ratings count
-      %th Rating
-      %th Created at
-      %th Updated at
-      %th Content link
-      %th Ad type
-      %th User id
+/ - unless Rails.env.production?
+/   %table
+/     %tr
+/       %th Name
+/       %th Active
+/       %th Views
+/       %th Ratings count
+/       %th Rating
+/       %th Created at
+/       %th Updated at
+/       %th Content link
+/       %th Ad type
+/       %th User id
 
-    - @advertisements.each do |advertisement|
-      %tr
-        %td= advertisement.name
-        %td= advertisement.active
-        %td= advertisement.views
-        %td= advertisement.ratings_count
-        %td= advertisement.rating
-        %td= advertisement.created_at
-        %td= advertisement.updated_at
-        %td= advertisement.content_link
-        %td= advertisement.ad_type
-        %td= advertisement.user_id
-        %td= link_to 'Show', advertisement
-        %td= link_to 'Edit', edit_advertisement_path(advertisement)
-        %td= link_to 'Destroy', advertisement, :method => :delete, :data => { :confirm => 'Are you sure?' }
+/     - @advertisements.each do |advertisement|
+/       %tr
+/         %td= advertisement.name
+/         %td= advertisement.active
+/         %td= advertisement.views
+/         %td= advertisement.ratings_count
+/         %td= advertisement.rating
+/         %td= advertisement.created_at
+/         %td= advertisement.updated_at
+/         %td= advertisement.content_link
+/         %td= advertisement.ad_type
+/         %td= advertisement.user_id
+/         %td= link_to 'Show', advertisement
+/         %td= link_to 'Edit', edit_advertisement_path(advertisement)
+/         %td= link_to 'Destroy', advertisement, :method => :delete, :data => { :confirm => 'Are you sure?' }
