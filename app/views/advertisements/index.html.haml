@@ -39,7 +39,7 @@
             .ad-data
               - if advertisement.user_id == current_user.try(:id)
                 .name
-                  = advertisement.name.titleize 
+                  = advertisement.name.titleize
                   (
                   = link_to 'Edit', edit_advertisement_path(advertisement)
                   )
