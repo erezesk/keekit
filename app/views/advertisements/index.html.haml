@@ -1,3 +1,7 @@
+- if @is_my_rated_ads
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+  <script src="http://code.highcharts.com/modules/exporting.js"></script>
+
 #fb-root
 != facebook_connect_js_tag
 %script
@@ -91,6 +95,57 @@
 
                   return false;
                 });
+
+              - if @is_my_rated_ads
+                .gender_graph{ :id => "gender_graph_#{advertisement.id}", :style => "height:100px;width:400px;margin-left:10px;" }
+
+                - average_by = advertisement.average_rating_by_gender
+
+                :javascript
+                  $('#gender_graph_#{advertisement.id}').highcharts({
+                    chart: {
+                      type: 'column'
+                    },
+                    title: {
+                      text: 'Average rating by gender'
+                    },
+                    xAxis: {
+                      categories: [
+                        'Gender'
+                      ]
+                    },
+                    yAxis: {
+                      min: 0,
+                      max: 5,
+                      title: {
+                        text: 'Average rating'
+                      }
+                    },
+                    tooltip: {
+                      headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                      pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                        '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+                      footerFormat: '</table>',
+                      shared: true,
+                      useHTML: true
+                    },
+                    plotOptions: {
+                      column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                      }
+                    },
+                    series: [{
+                      name: 'Male',
+                      data: [#{average_by[:male_average]}],
+                      color: 'lightblue'
+                    }, {
+                      name: 'Female',
+                      data: [#{average_by[:female_average]}],
+                      color: 'pink'
+                    }]
+                  });
+
 
     / Carousel nav
     %a.carousel-control.left{href: "#myCarousel", "data-slide" => "prev"} &lsaquo;

@@ -32,6 +32,8 @@ class AdvertisementsController < ApplicationController
   def current_user_ads
     @advertisements = Advertisement.my_ads(current_user)
 
+    @is_my_rated_ads = true
+
     respond_to do |format|
       format.html { render action: "index" }
       format.json { render json: @advertisements }

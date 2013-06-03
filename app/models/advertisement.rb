@@ -40,4 +40,23 @@ class Advertisement < ActiveRecord::Base
   def user_rating(user_id) 
     Rating.where(user_id: user_id, advertisement_id: id).first
   end
+
+  def average_rating_by_gender
+    male_count = 0.0
+    female_count = 0.0
+    male_total = 0.0
+    female_total = 0.0
+
+    Rating.where(advertisement_id: id).select("user_id, value").each do |current_rating|
+      if current_rating.user.gender == "Male"
+        male_count += 1
+        male_total += current_rating.value
+      elsif current_rating.user.gender == "Female"
+        female_count += 1
+        female_total += current_rating.value
+      end
+    end
+
+    {male_average: (male_count == 0) ? 0 : male_total / male_count, female_average: (female_count == 0) ? 0 : female_total / female_count}
+  end
 end
