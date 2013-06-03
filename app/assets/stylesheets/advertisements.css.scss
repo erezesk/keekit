@@ -2,7 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#myCarousel { margin-left: -30px; margin-top: 20px; }
+#myCarousel { 
+  margin-left: -30px; 
+  margin-top: 20px; 
+
+  .carousel-control { top: 240px; }
+}
 
 .carousel-inner {
   .item { 
@@ -12,6 +17,15 @@
       width: 94%;
 
       iframe { display: inline-block; }
+
+      .kt-graphs {
+        height: 250px;
+        margin-top: 20px;
+
+        .gender_graph {
+          margin-left: 20px;
+        }
+      }
 
       .ad-data {
         display: inline-block;
@@ -54,18 +68,18 @@
           width: 122px;
           height: 42px;
           border: none;
-          margin-top: 10px;
           position: absolute;
           right: 0;
-          bottom: 0;
+          top: 350px;
+          margin-top: 0px;
           margin-right: 70px;
         }
 
         .stats_count {
           position: absolute;
-          bottom: 0;
+          top: 360px;
           margin-left: 10px;
-          margin-bottom: 14px;
+          margin-top: 0px;
           color: black;
           width: 23%;
           p {

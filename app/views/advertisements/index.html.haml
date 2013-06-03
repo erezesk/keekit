@@ -96,8 +96,10 @@
                   return false;
                 });
 
-              - if @is_my_rated_ads
-                .gender_graph{ :id => "gender_graph_#{advertisement.id}", :style => "height:100px;width:400px;margin-left:10px;" }
+            
+            - if @is_my_rated_ads && advertisement.ratings_count > 0
+              .kt-graphs
+                .gender_graph{ :id => "gender_graph_#{advertisement.id}", :style => "height:250px;width:400px;" }
 
                 - average_by = advertisement.average_rating_by_gender
 
@@ -107,7 +109,7 @@
                       type: 'column'
                     },
                     title: {
-                      text: 'Average rating by gender'
+                      text: 'Average Rating By Gender'
                     },
                     xAxis: {
                       categories: [
@@ -118,7 +120,7 @@
                       min: 0,
                       max: 5,
                       title: {
-                        text: 'Average rating'
+                        text: 'Average Rating'
                       }
                     },
                     tooltip: {
