@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   # GET /users/new
   # GET /users/new.json
   def new
-    @user = User.new
+    @user = User.new(birthday: Date.today())
 
     respond_to do |format|
       format.html # new.html.erb
@@ -39,6 +39,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    @user.birthday = @user.birthday.to_s(:date).split(" ").first
   end
 
   # POST /users
@@ -64,7 +65,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to root_path, notice: 'User was successfully updated.' }
+        format.html { redirect_to edit_user_path(current_user.id), notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
