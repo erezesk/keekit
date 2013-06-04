@@ -148,6 +148,65 @@
                     }]
                   });
 
+                .age_graph{ :id => "age_graph_#{advertisement.id}", :style => "height:250px;width:400px;" }
+
+                - average_by = advertisement.average_rating_by_age_and_gender
+
+                :javascript
+                  $('#age_graph_#{advertisement.id}').highcharts({
+                    chart: {
+                      type: 'column'
+                    },
+                    title: {
+                      text: 'Average Rating By Age and Gender'
+                    },
+                    xAxis: {
+                      categories: [
+                        'Under 14',
+                        '14-17',
+                        '18-25',
+                        '26-35',
+                        '36-45',
+                        '46-60',
+                        'Over 60'
+                      ]
+                    },
+                    yAxis: {
+                      min: 0,
+                      max: 5,
+                      title: {
+                        text: 'Average Rating'
+                      }
+                    },
+                    tooltip: {
+                      headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                      pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                        '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+                      footerFormat: '</table>',
+                      shared: true,
+                      useHTML: true
+                    },
+                    plotOptions: {
+                      column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                      }
+                    },
+                    series: [{
+                      name: 'Male',
+                      data: [#{average_by[:u13][:male]}, #{average_by[:u17][:male]}, #{average_by[:u25][:male]}, #{average_by[:u35][:male]}, #{average_by[:u45][:male]}, #{average_by[:u60][:male]}, #{average_by[:o60][:male]}],
+                      color: 'lightblue'
+                    }, {
+                      name: 'Female',
+                      data: [#{average_by[:u13][:female]}, #{average_by[:u17][:female]}, #{average_by[:u25][:female]}, #{average_by[:u35][:female]}, #{average_by[:u45][:female]}, #{average_by[:u60][:female]}, #{average_by[:o60][:female]}],
+                      color: 'pink'
+                    }, {
+                      name: 'Total',
+                      data: [#{average_by[:u13][:total]}, #{average_by[:u17][:total]}, #{average_by[:u25][:total]}, #{average_by[:u35][:total]}, #{average_by[:u45][:total]}, #{average_by[:u60][:total]}, #{average_by[:o60][:total]}],
+                      color: 'teal'
+                    }]
+                  });
+
 
     / Carousel nav
     %a.carousel-control.left{href: "#myCarousel", "data-slide" => "prev"} &lsaquo;
