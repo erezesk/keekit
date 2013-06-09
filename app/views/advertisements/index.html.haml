@@ -106,6 +106,13 @@
                 :javascript
                   $('#gender_graph_#{advertisement.id}').highcharts({
                     chart: {
+                      backgroundColor: {
+                        linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                        stops: [
+                          [0, 'rgb(96, 96, 96)'],
+                          [1, 'rgb(16, 16, 16)']
+                        ]
+                      },
                       type: 'column'
                     },
                     title: {
@@ -155,6 +162,13 @@
                 :javascript
                   $('#age_graph_#{advertisement.id}').highcharts({
                     chart: {
+                      backgroundColor: {
+                        linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                        stops: [
+                          [0, 'rgb(96, 96, 96)'],
+                          [1, 'rgb(16, 16, 16)']
+                        ]
+                      },
                       type: 'column'
                     },
                     title: {
