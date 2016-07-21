@@ -14,7 +14,7 @@
     $('.dropdown-toggle').dropdown();
     $(".carousel-inner .item:first").addClass("active");
 
-    $("span.star-rating-control div.star-rating").click(function() { 
+    $("span.star-rating-control div.star-rating").click(function() {
       $.ajax({
         type: "POST",
         dataType: "json",
@@ -30,14 +30,14 @@
     $("body").keydown(function(e){
       // left arrow
       if (e.which == 37)
-      {   
+      {
           $("#myCarousel").carousel("prev");
       }
       // right arrow
       if (e.which == 39)
       {
           $("#myCarousel").carousel("next");
-      }   
+      }
     });
   });
 
@@ -51,7 +51,7 @@
       - @advertisements.each do |advertisement|
         .item{:id => "car_item_#{advertisement.id}"}
           .inner-item
-            %iframe{:allowscriptaccess => "always", :allowFullScreen => "true", :frameborder => "0", :height => "390", :src => "http://www.youtube.com/embed/#{advertisement.content_link}?rel=0", :title => "YouTube video player", :width => "640"}
+            %iframe{:allowscriptaccess => "always", :allowFullScreen => "true", :frameborder => "0", :height => "390", :src => "https://www.youtube.com/embed/#{advertisement.content_link}?rel=0", :title => "YouTube video player", :width => "640"}
 
             .ad-data
               - if advertisement.user_id == current_user.try(:id)
@@ -76,7 +76,7 @@
                       .field
                         - 5.times do |i|
                           = f.radio_button :value, i+1, :class => 'star'
-              
+
               .stats_count
                 %p.first=  "Raters: #{advertisement.ratings_count}"
                 %p.second= "Shares: #{advertisement.shares}"
@@ -96,7 +96,7 @@
                   return false;
                 });
 
-            
+
             - if @is_my_rated_ads && advertisement.ratings_count > 0
               .kt-graphs
                 .gender_graph{ :id => "gender_graph_#{advertisement.id}", :style => "height:250px;width:400px;" }
